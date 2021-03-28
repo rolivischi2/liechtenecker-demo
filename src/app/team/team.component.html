@@ -1,0 +1,28 @@
+<div class="my-form-group">
+    <mat-slider
+        class="example-margin"
+        invert="false"
+        thumbLabel
+        [displayWith]="formatLabel"
+        [disabled]="isShuffleDisabled()"
+        [max]="getMaxSize()"
+        [min]="0"
+        [step]="1"
+        tickInterval="auto"
+        [(ngModel)]="selectedSize"
+        vertical="false">
+    </mat-slider>
+    <button (click)="shuffleTeams()" [disabled]="isShuffleDisabled()" mat-icon-button color="primary" aria-label="Add Player icon">
+        <mat-icon>shuffle</mat-icon>
+    </button>
+</div>
+
+<div class="teams-container">
+    <div class="team-container" *ngFor="let team of teams">
+        <div class="container" [style.background-color]="team.color" *ngFor="let player of team.players">
+            <div class="cell">
+                <h4>{{player.name}}</h4>
+            </div>
+        </div>
+    </div>
+</div>

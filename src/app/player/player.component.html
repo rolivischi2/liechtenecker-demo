@@ -1,0 +1,27 @@
+<div class="my-form-group">
+    <form *ngIf="playerCreationOpen" class="example-form" [formGroup]="playerForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name">
+        </mat-form-field>
+      </form>
+    <button (click)="togglePlayerCreation()" [disabled]="isButtonDisabled()" mat-icon-button color="primary" aria-label="Add Player icon">
+        <mat-icon>add_reaction</mat-icon>
+    </button>
+    <button *ngIf="playerCreationOpen" (click)="clearForm()" mat-icon-button color="primary" aria-label="Add Player icon">
+        <mat-icon>clear</mat-icon>
+    </button>
+</div>
+
+<div class="player-container" *ngIf="players && players.length > 0">
+    <div class="container" *ngFor="let player of players">
+        <div class="cell">
+            {{player.name}}
+        </div>
+        <div class="cell">
+            <button (click)="removePlayer(player)" mat-icon-button color="primary" aria-label="Add Player icon">
+                <mat-icon>clear</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
