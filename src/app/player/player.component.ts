@@ -14,8 +14,6 @@ export class PlayerComponent implements OnInit, OnDestroy {
 
   playerCreationOpen = false;
   sub = new Subscription;
-  displayedColumns: string[] = ['name','actions'];
-
   players: Array<Player> = [];
 
   playerForm = new FormGroup({
